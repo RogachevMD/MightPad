@@ -1,4 +1,4 @@
-package com.example.mightpad.ui.notes
+package com.example.mightpad.ui.category
 
 import androidx.fragment.app.Fragment
 import com.example.mightpad.R

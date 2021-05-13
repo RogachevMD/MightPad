@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.example.mightpad.ui.notes.CategoriesFragment"
+        android:name="com.example.mightpad.ui.category.CategoriesFragment"
         android:label="fragment_notes"
         tools:layout="@layout/fragment_categories" />
 </navigation>
