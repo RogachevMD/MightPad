@@ -2,19 +2,34 @@ package com.example.mightpad.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import dagger.hilt.android.qualifiers.ApplicationContext
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.mightpad.di.ApplicationScope
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
-
 
 @Database(entities = [Category::class], version = 1)
 abstract class CategoryDatabase : RoomDatabase() {
 
     abstract fun categoryDao(): CategoryDao
 
-    class CallBack @Inject() constructor(
+    class CallBack @Inject constructor(
         private val database: Provider<CategoryDatabase>,
-        @ApplicationScope private val applicationContext: CoroutineScope
-    )
+        @ApplicationScope private val applicationScope: CoroutineScope
+    ) : RoomDatabase.Callback() {
+
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            super.onCreate(db)
+
+            val dao = database.get().categoryDao()
+
+            applicationScope.launch {
+                dao.insert(Category(name = "1", description = "Kek"))
+                dao.insert(Category(name = "2", description = "Shrek"))
+                dao.insert(Category(name = "3", description = "Pek"))
+            }
+
+        }
+    }
 }

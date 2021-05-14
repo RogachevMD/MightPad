@@ -13,12 +13,12 @@ data class Category(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
-    val name: String,
-    val date: Long = System.currentTimeMillis(),
-    val description: String
+    val name: String = "",
+    val created: Long = System.currentTimeMillis(),
+    val description: String = ""
 
 ) : Parcelable {
     val createdDateFormat: String
         get() = DateFormat
-            .getDateTimeInstance().format(date)
+            .getDateTimeInstance().format(created)
 }

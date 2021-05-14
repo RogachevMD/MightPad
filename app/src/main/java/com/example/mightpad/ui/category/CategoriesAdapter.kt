@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mightpad.data.Category
 import com.example.mightpad.databinding.ItemCategoryBinding
 
-class CategoriesAdapter :
+class CategoriesAdapter(private val listener: OnItemClickListener) :
     ListAdapter<Category, CategoriesAdapter.CategoriesViewHolder>(CategoryComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -45,5 +45,7 @@ class CategoriesAdapter :
 
     }
 
-
+    interface OnItemClickListener {
+        fun onItemClick(category: Category)
+    }
 }
