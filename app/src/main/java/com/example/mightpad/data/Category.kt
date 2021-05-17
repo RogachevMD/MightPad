@@ -13,9 +13,9 @@ data class Category(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
-    val name: String = "",
+    val name: String = " ",
     val created: Long = System.currentTimeMillis(),
-    val description: String = ""
+    val description: String = " "
 
 ) : Parcelable {
     val createdDateFormat: String

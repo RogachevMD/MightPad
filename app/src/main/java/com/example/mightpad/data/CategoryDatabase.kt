@@ -25,9 +25,9 @@ abstract class CategoryDatabase : RoomDatabase() {
             val dao = database.get().categoryDao()
 
             applicationScope.launch {
-                dao.insert(Category(name = "1", description = "Kek"))
-                dao.insert(Category(name = "2", description = "Shrek"))
-                dao.insert(Category(name = "3", description = "Pek"))
+                dao.insert(Category(name = "1"))
+                dao.insert(Category(name = "2"))
+                dao.insert(Category(name = "3"))
             }
 
         }

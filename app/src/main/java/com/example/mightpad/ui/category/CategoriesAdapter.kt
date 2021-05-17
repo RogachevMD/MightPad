@@ -2,13 +2,14 @@ package com.example.mightpad.ui.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mightpad.data.Category
 import com.example.mightpad.databinding.ItemCategoryBinding
 
-class CategoriesAdapter(private val listener: OnItemClickListener) :
+class CategoriesAdapter/*(private val listener: OnItemClickListener)*/ :
     ListAdapter<Category, CategoriesAdapter.CategoriesViewHolder>(CategoryComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -31,7 +32,10 @@ class CategoriesAdapter(private val listener: OnItemClickListener) :
             binding.apply {
                 textViewName.text = category.name
                 textViewDate.text = category.createdDateFormat
-                textViewDescription.text = category.description
+                if (category.description.isEmpty()){
+                    textViewDescription.text = category.description
+                    textViewDescription.isVisible = true
+                }
             }
         }
     }
@@ -45,7 +49,7 @@ class CategoriesAdapter(private val listener: OnItemClickListener) :
 
     }
 
-    interface OnItemClickListener {
+    /*interface OnItemClickListener {
         fun onItemClick(category: Category)
-    }
+    }*/
 }

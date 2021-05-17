@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:elevation="4dp"
+    android:elevation="1dp"
     app:cardCornerRadius="4dp">
 
     <RelativeLayout
@@ -25,7 +25,7 @@
             android:maxLines="1"
             android:textColor="@color/black"
             android:textSize="@dimen/text_title"
-            tools:text="Note Name" />
+            tools:text="Category Name" />
 
         <TextView
             android:id="@+id/text_view_date"
@@ -36,7 +36,7 @@
             android:maxLines="1"
             android:layout_alignParentStart="true"
             android:textSize="@dimen/text_metadata"
-            tools:text="Note Date" />
+            tools:text="Category Date" />
 
         <TextView
             android:id="@+id/text_view_description"
@@ -46,7 +46,9 @@
             android:maxLines="2"
             android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_name"
-            tools:text="Note description"
+            tools:text="Category description"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:textSize="@dimen/text_body"/>
 
         <ImageView
